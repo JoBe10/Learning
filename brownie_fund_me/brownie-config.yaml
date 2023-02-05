@@ -1,0 +1,28 @@
+# Dependencies are to tell brownie where to downlaod from
+dependencies:
+  # - <organization/repo>@<version>
+  # You can find all this on Github like here:
+  # https://github.com/smartcontractkit/chainlink-brownie-contracts/tags?after=0.2.1
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    # The remapping tells brownie what the "@chainlink" in the import statement means 
+    # so that this is consistent with the npm package syntax
+    # Need to tell the compiler this hence why it is in this section
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+dotenv: .env
+networks:
+  default: development
+  goerli:
+    eth_usd_price_feed: "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e"
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY}
