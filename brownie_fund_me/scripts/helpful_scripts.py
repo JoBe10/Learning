@@ -4,6 +4,7 @@ from web3 import Web3
 FORKED_LOCAL_ENVIRONMENTS = ["mainnet-fork", "mainnet-fork-dev"]
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local"]
 
+# ALWAYS ADD .env TO GITIGNORE!!
 # 8 decimals because we are multiplying by 10^10 in the smart contarct's getPrice() function
 DECIMALS = 8
 STARTING_PRICE = 200000000000
